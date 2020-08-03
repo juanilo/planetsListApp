@@ -1,0 +1,11 @@
+<dir class="mdl-typography--text-center">
+    <a ng-disabled="!vm.hasPrev" ng-click="vm.prevAction();"
+        class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">keyboard_arrow_left</i> Previous
+    </a>
+    <span class="mdl-navigation__link">{{vm.partial}} of {{::vm.total}}</span>
+    <a ng-disabled="!vm.hasNext" ng-click="vm.nextAction();"
+        class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        Next <i class="material-icons">keyboard_arrow_right</i>
+    </a>
+</dir>

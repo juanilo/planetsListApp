@@ -1,0 +1,17 @@
+<div class="mdl-card mdl-shadow--2dp planet-info">
+    <div class="mdl-card__title planet-info__title">
+        <h2 class="mdl-card__title-text">{{::vm.planet.name}}</h2>
+        <span ng-if="vm.planet.warning" class="planet-info__title--warning">{{::vm.planet.warning}}</span>
+    </div>
+    <div class="mdl-card__actions mdl-card--border"></div>
+    <div class="mdl-card__supporting-text planet-info__details">
+        <div class="planet-info__details--line"> <strong>Climate :</strong> {{::vm.planet.climate}}</div>
+        <div class="planet-info__details--line"> <strong>Diameter :</strong> {{::vm.planet.diameter}}</div>
+        <div class="planet-info__details--line"> <strong>Gravity :</strong> {{::vm.planet.gravity}}</div>
+        <div class="planet-info__details--line"> <strong>Orbital (period) :</strong> {{::vm.planet.orbital_period}}</div>
+        <div class="planet-info__details--line"> <strong>Population :</strong> {{::vm.planet.population}}</div>
+        <div class="planet-info__details--line"> <strong>Rotation (period) :</strong> {{::vm.planet.rotation_period}}</div>
+        <div class="planet-info__details--line"> <strong>Terrain :</strong> {{::vm.planet.terrain}}</div>
+        <div class="planet-info__details--line"> <strong>Residents :</strong> {{::vm.planet.residents.length}}</div>
+    </div>
+</div>

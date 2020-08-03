@@ -1,0 +1,31 @@
+<section class="list-sw">
+    <div class="list-sw__sort" ng-if="vm.elements" >
+            <div>
+                <div class="mdl-selectfield mdl-js-selectfield">
+                    <label class="mdl-selectfield__label"
+                            for="sort">Sort by: </label>
+                    <select class="mdl-selectfield__select"
+                            id="sort"
+                            name="sort"
+                            ng-model="vm.order"
+                            ng-options="sort.name for sort in vm.sorts"
+                            ng-init="vm.order = vm.sorts[vm.defaultSort]">
+                    </select>
+                </div>
+           </div>
+           <div>
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    <i ng-show="vm.orderReverse" class="material-icons" ng-click="vm.orderReverse = !vm.orderReverse">keyboard_arrow_up</i>
+
+                    <i ng-hide="vm.orderReverse" class="material-icons" ng-click="vm.orderReverse = !vm.orderReverse">keyboard_arrow_down</i>
+                </a>
+            </div>
+    </div>
+
+    <ul class="mdc-list list-sw__elements">
+        <li class="mdc-list-item list-sw__elements--item" 
+            ng-repeat="element in vm.elements | orderBy: vm.order.type : vm.orderReverse">
+            <planet-info planet="element"></planet-info>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,43 @@
+<div class="mdl-layout mdl-js-layout mdl-grid">
+
+    <div class="mdl-layout__drawer" >
+        <left-nav title="main.leftNavTitle" links="main.links"></left-nav>
+    </div>
+
+    <main class="mdl-layout__content mdl-grid center-items">
+
+        <div class="page-content" 
+                class="mdl-cell mdl-cell--12-col mdl-typography--text-center">
+
+            <h1 class="mdl-typography--text-center">{{main.title}}</h1>
+
+            <div ng-if="main.isLoading" class="mdl-typography--text-center loading-indicator">
+                <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            </div>
+
+            <div ng-if="!main.isLoading" class="mdl-typography--text-center">
+
+                <list-sw
+                    elements="main.planets"
+                    sorts="main.sorts" 
+                    default-sort="main.defaultSort">
+                </list-sw>
+
+                <paginator
+                    has-prev="main.hasPrevPage"
+                    has-next="main.hasNextPage"
+                    prev-action="main.load('back')"
+                    next-action="main.load('next')"
+                    partial="main.partial"
+                    totaL="main.total">
+                </paginator>
+
+                <error-message ng-show="main.error" retry="main.load('retry')"></error-message>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
