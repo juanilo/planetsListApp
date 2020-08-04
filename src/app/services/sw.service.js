@@ -26,7 +26,6 @@
           defaultSort : 5,
           url : 'planets/'
         }],
-        resourcePartial = 0,
         lastResourceViewed,
         /*
          * Public methods of the service
@@ -37,15 +36,17 @@
           getPrev : getPrev,
           getResourceSorts : getResourceSorts
         },
-        paginator = {};
+        paginator = { 
+          partial: 0
+        };
 
     /*
      * method : handlePagination
      * description : Saves the paginator status 
      * param : result {Object}
      */
-    function handlePagination(result, pageDirection) {
-        paginator.partial = resourcePartial + _.size(_.get(result,'data.results')) * (pageDirection ? -1 : 1);
+    function handlePagination(result, backDirection) {
+        paginator.partial = paginator.partial + _.size(_.get(result,'data.results')) * (backDirection ? -1 : 1);
         paginator.count = _.get(result, 'data.count');
         paginator.prevUrl = _.get(result, 'data.previous');
         paginator.nextUrl = _.get(result, 'data.next');
@@ -72,19 +73,19 @@
      * param : url {String}
      * return : {Promise} with the result of the call
      */
-    function get(url, pageDirection) {
+    function get(url, backDirection) {
         return $http.get(url)
             .then(function(result) {
               if (isValid(result)){
                 var page = _.get(result,'data.results');
                 //saves the paginator status for further calls
-                handlePagination(result, pageDirection);
+                handlePagination(result, backDirection);
                 //return the object with the results and pagination status
                 return {
                     page: page,
                     hasNext: _.isNil(paginator.nextUrl) ? false : true,
                     hasPrev: _.isNil(paginator.prevUrl) ? false : true,
-                    partial: resourcePartial,
+                    partial: paginator.partial,
                     total: paginator.count
                 };
             }
@@ -136,7 +137,7 @@
     function getByResouce(type) {
         if (lastResourceViewed !== type) {
             lastResourceViewed = type;
-            resourcePartial = 0;
+            paginator.partial = 0;
         }
 
       return get(rootUrl + getResourceUrl(type));
