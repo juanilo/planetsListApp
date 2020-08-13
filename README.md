@@ -17,8 +17,10 @@ The current app is only consuming "planets", to add more resources justy need to
     url : 'resourceUri/'
 }
 ```
-__current status of the implementation__ : partial _(8/3/2020)_
-
+__current status of the implementation__ : 
+ -1st partial _(8/3/2020)_ 
+ -2nd partial _(8/13/2020)_ 
+ 
 ## Instructions: 
 
 In order to run it locally just : 
