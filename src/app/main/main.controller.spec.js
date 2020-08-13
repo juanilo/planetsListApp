@@ -109,6 +109,8 @@
             }]);
         })
 
+        // TODO : Complete test
+
         xit('has called swService.getByResouce, processPage, handleError and set view variables', function () {
             // two branches can be tested at the same time giving coverages 
             // by using a sync Promise mocked (P(x) defined at line 4)

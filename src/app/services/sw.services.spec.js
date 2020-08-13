@@ -15,6 +15,13 @@
         it('should be defined', function(){
             expect(vm.service).toBeDefined();
         });
+
+        /*
+        *
+        *   TODO : Complete test
+        *
+        */
+
     }); 
 
 })();
