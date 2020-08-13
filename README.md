@@ -18,8 +18,13 @@ The current app is only consuming "planets", to add more resources justy need to
 }
 ```
 __current status of the implementation__ : 
- -1st partial _(8/3/2020)_ 
- -2nd partial _(8/13/2020)_ 
+- 1st partial _(8/3/2020)_ 
+- 2nd partial _(8/13/2020)_ 
+ 
+ current TODOs : 
+ - improve select styles.
+ - improve main controller unit tests coverage.
+ - complete service unit tests.
  
 ## Instructions: 
 
@@ -29,4 +34,8 @@ In order to run it locally just :
 git clone https://github.com/juanilo/planetsListApp.git
 cd planetsListApp
 gulp serve
+```
+## Run the tests :
+```
+gulp test
 ```
