@@ -1,6 +1,6 @@
-<h4 class="mdl-layout-title mdl-typography--text-center align-middle main-title">{{vm.title}}</h4>
-<nav class="mdl-navigation">
-    <a ng-repeat="link in vm.links" class="mdl-navigation__link"
+<h4 class="left-nav mdl-layout-title mdl-typography--text-center align-middle main-title">{{vm.title}}</h4>
+<nav class="left-nav__nav mdl-navigation">
+    <a ng-repeat="link in vm.links" class="left-nav__link mdl-navigation__link"
         href="{{link.href}}" target="_blank">
       <i class="material-icons">{{link.type}}</i>  {{link.text}}
     </a>

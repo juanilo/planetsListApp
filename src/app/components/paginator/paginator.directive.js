@@ -27,9 +27,7 @@
     function PaginatorController() {
         var vm = this;
 
-        vm.$onInit  = function(){
-        
-        }
+        vm.$onInit  = function(){}
     }
 
     return directive;
